@@ -154,16 +154,19 @@ a.main-link {
 }
 
 .badge.new {
-  color: var(--mustard);
+  background-color: var(--mustard);
 }
 
 .badge.updated {
-  color: var(--olive);
+  background-color: var(--olive);
 }
 
 .badge {
-  font-size: 24px;
-  line-height: 0.5em;
+  display: inline-block;
+  margin-inline: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 
 .card {

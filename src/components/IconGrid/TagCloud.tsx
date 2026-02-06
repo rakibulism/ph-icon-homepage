@@ -29,8 +29,8 @@ const TagCloud = ({ name, tags }: TagCloudProps) => {
           onClick={() => void handleTagClick(tag)}
         >
           <code>{tag}</code>
-          {tag === "*new*" && <span className="badge new">•</span>}
-          {tag === "*updated*" && <span className="badge updated">•</span>}
+          {tag === "*new*" && <span className="badge new" />}
+          {tag === "*updated*" && <span className="badge updated" />}
         </button>
       ))}
     </div>

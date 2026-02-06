@@ -74,8 +74,9 @@ const StyleInput = (_: StyleInputProps) => {
         <span
           role="option"
           aria-selected={item.key === values[0].key}
-          className={`react-dropdown-select-item ${itemIndex === cursor ? "react-dropdown-select-item-active" : ""
-            }`}
+          className={`react-dropdown-select-item ${
+            itemIndex === cursor ? "react-dropdown-select-item-active" : ""
+          }`}
           onClick={() => methods.addItem(item)}
         >
           {item.icon}

@@ -91,8 +91,8 @@ const IconGridItem = (props: IconGridItemProps) => {
       <Icon />
       <p>
         <span className="name">{name}</span>
-        {isNew && <span className="badge new">•</span>}
-        {isUpdated && <span className="badge updated">•</span>}
+        {isNew && <span className="badge new" />}
+        {isUpdated && <span className="badge updated" />}
       </p>
     </motion.button>
   );

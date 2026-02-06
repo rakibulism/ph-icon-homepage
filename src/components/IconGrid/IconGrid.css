@@ -42,6 +42,7 @@
 }
 
 .grid-item p {
+  text-wrap: nowrap;
   font-size: 12px;
   line-height: 16px;
   margin-top: 12px;
