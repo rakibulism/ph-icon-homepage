@@ -1,4 +1,4 @@
-import { Component, ErrorInfo, ReactNode } from "react";
+import { Component, ErrorInfo, ReactNode, JSX } from "react";
 import ReactGA from "react-ga4";
 
 interface ErrorBoundaryProps {

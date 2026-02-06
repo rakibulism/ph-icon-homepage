@@ -3,12 +3,15 @@ import useUnmount from "./useUnmount";
 
 const useThrottle = <T>(value: T, ms: number = 200) => {
   const [state, setState] = useState<T>(value);
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
-  const nextValue = useRef(null) as any;
-  const hasNextValue = useRef(0) as any;
+  const timeout = useRef<ReturnType<typeof setTimeout>>(null);
+  const nextValue = useRef<T>(value);
+  const hasNextValue = useRef(false);
 
   useEffect(() => {
-    if (!timeout.current) {
+    if (timeout.current) {
+      nextValue.current = value;
+      hasNextValue.current = true;
+    } else {
       setState(value);
       const timeoutCallback = () => {
         if (hasNextValue.current) {
@@ -16,13 +19,10 @@ const useThrottle = <T>(value: T, ms: number = 200) => {
           setState(nextValue.current);
           timeout.current = setTimeout(timeoutCallback, ms);
         } else {
-          timeout.current = undefined;
+          timeout.current = null;
         }
       };
       timeout.current = setTimeout(timeoutCallback, ms);
-    } else {
-      nextValue.current = value;
-      hasNextValue.current = true;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
