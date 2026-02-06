@@ -23,19 +23,20 @@ type SearchInputProps = {};
 
 const SearchInput = (_: SearchInputProps) => {
   const [value, setValue] = useState<string>("");
-  const { query, setQuery } = useApplicationStore(useShallow((state) => ({
-    query: state.searchQuery,
-    setQuery: state.setSearchQuery,
-  })));
-  const inputRef =
-    useRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+  const { query, setQuery } = useApplicationStore(
+    useShallow((state) => ({
+      query: state.searchQuery,
+      setQuery: state.setSearchQuery,
+    }))
+  );
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useHotkeys("ctrl+k,meta+k", (e) => {
     e.preventDefault();
-    if (!e.repeat) {
-      inputRef.current?.focus();
-      inputRef.current.select();
-    }
+    if (!inputRef.current) return;
+    if (e.repeat) return;
+    inputRef.current.focus();
+    inputRef.current.select();
   });
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -86,9 +87,14 @@ const SearchInput = (_: SearchInputProps) => {
         value={value}
         placeholder="Search"
         onChange={({ currentTarget }) => setValue(currentTarget.value)}
-        onKeyDown={({ currentTarget, key }) =>
-          (key === "Enter" || key === "Escape") && currentTarget.blur()
-        }
+        onKeyDown={(event) => {
+          if (event.nativeEvent.isComposing || event.repeat) {
+            return;
+          }
+          if (event.key === "Enter" || event.key === "Escape") {
+            event.currentTarget.blur();
+          }
+        }}
       />
       {!value && !isMobile && (
         <Keys>{isApple ? <CommandIcon /> : "Ctrl + "}K</Keys>
