@@ -91,7 +91,7 @@ class IconJarExporter implements Exporter {
           weight === "regular" ? icon.name : `${icon.name}-${weight}`;
         const filePath = path.join(CORE_DIR, `${weight}/${name}.svg`);
         const entry = new Icon(name, filePath, Icon.TYPE_SVG);
-        entry.addTags(icon.tags as unknown as string[]);
+        entry.addTags([...icon.tags]);
         entry.unicode = icon.codepoint.toString(16);
         entry.license = license;
         entry.date = now;

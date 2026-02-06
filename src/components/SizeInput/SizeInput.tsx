@@ -15,10 +15,12 @@ const handleBlur = (event: React.UIEvent<HTMLInputElement>) => {
 };
 
 const SizeInput = (_: SizeInputProps) => {
-  const { size, setSize } = useApplicationStore(useShallow((state) => ({
-    size: state.iconSize,
-    setSize: state.setIconSize,
-  })));
+  const { size, setSize } = useApplicationStore(
+    useShallow((state) => ({
+      size: state.iconSize,
+      setSize: state.setIconSize,
+    }))
+  );
 
   const handleSizeChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

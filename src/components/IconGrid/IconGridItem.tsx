@@ -2,10 +2,10 @@ import {
   useRef,
   useLayoutEffect,
   useEffect,
-  MutableRefObject,
+  RefObject,
   HTMLAttributes,
 } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useShallow } from "zustand/react/shallow";
 
 import { IconEntry } from "@/lib";
@@ -15,7 +15,7 @@ interface IconGridItemProps extends HTMLAttributes<HTMLDivElement> {
   index: number;
   isDark: boolean;
   entry: IconEntry;
-  originOffset: MutableRefObject<{ top: number; left: number }>;
+  originOffset: RefObject<{ top: number; left: number }>;
 }
 
 const transition = { duration: 0.2 };
@@ -24,7 +24,7 @@ const delayPerPixel = 0.0003;
 
 const itemVariants = {
   hidden: { opacity: 0 },
-  visible: (delayRef: MutableRefObject<number>) => ({
+  visible: (delayRef: RefObject<number>) => ({
     opacity: 1,
     transition: { delay: delayRef.current },
   }),
@@ -33,16 +33,18 @@ const itemVariants = {
 const IconGridItem = (props: IconGridItemProps) => {
   const { index, originOffset, entry, style } = props;
   const { name, Icon } = entry;
-  const { selection, setSelectionEntry } = useApplicationStore(useShallow((state) => ({
-    selection: state.selectionEntry,
-    setSelectionEntry: state.setSelectionEntry,
-  })));
+  const { selection, setSelectionEntry } = useApplicationStore(
+    useShallow((state) => ({
+      selection: state.selectionEntry,
+      setSelectionEntry: state.setSelectionEntry,
+    }))
+  );
   const isOpen = selection?.name === name;
   const isNew = entry.tags.includes("*new*");
   const isUpdated = entry.tags.includes("*updated*");
   const delayRef = useRef<number>(0);
   const offset = useRef({ top: 0, left: 0 });
-  const ref = useRef<any>();
+  const ref = useRef<HTMLButtonElement>(null);
 
   const handleOpen = () => setSelectionEntry(isOpen ? null : entry);
 
@@ -79,6 +81,8 @@ const IconGridItem = (props: IconGridItemProps) => {
         ...style,
         backgroundColor: isOpen ? "var(--background-layer)" : undefined,
       }}
+      initial="hidden"
+      animate="visible"
       custom={delayRef}
       transition={transition}
       variants={itemVariants}

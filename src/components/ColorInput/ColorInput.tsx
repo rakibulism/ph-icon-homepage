@@ -10,11 +10,13 @@ import "./ColorInput.css";
 type ColorInputProps = {};
 
 const ColorInput = (_: ColorInputProps) => {
-  const { color, setColor, theme } = useApplicationStore(useShallow((state) => ({
-    color: state.iconColor,
-    setColor: state.setIconColor,
-    theme: state.applicationTheme,
-  })));
+  const { color, setColor, theme } = useApplicationStore(
+    useShallow((state) => ({
+      color: state.iconColor,
+      setColor: state.setIconColor,
+      theme: state.applicationTheme,
+    }))
+  );
 
   const handleColorChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +51,9 @@ const ColorInput = (_: ColorInputProps) => {
         onChange={throttledColorChange}
         value={color}
       />
-      <span style={{ color: theme === ApplicationTheme.DARK ? "black" : "white" }}>
+      <span
+        style={{ color: theme === ApplicationTheme.DARK ? "black" : "white" }}
+      >
         {color === "currentColor" ? (
           <EyedropperSampleIcon size={28} weight="fill" />
         ) : (

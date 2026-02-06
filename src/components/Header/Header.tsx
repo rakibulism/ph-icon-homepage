@@ -7,15 +7,15 @@ import {
 
 import Banner from "@/components/Banner";
 
-import { ReactComponent as PhosphorLogo } from "@/assets/phosphor-logo.svg";
-import { ReactComponent as PaperClipsTwo } from "@/assets/paperclips-2.svg";
-import { ReactComponent as PaperClipsThree } from "@/assets/paperclips-3.svg";
-import { ReactComponent as IPad } from "@/assets/ipad.svg";
-import { ReactComponent as IPadSpec } from "@/assets/ipad-spec.svg";
-import { ReactComponent as Map } from "@/assets/map.svg";
-import { ReactComponent as MapSpec } from "@/assets/map-spec.svg";
-import { ReactComponent as Synth } from "@/assets/synth.svg";
-import { ReactComponent as SynthSpec } from "@/assets/synth-spec.svg";
+import PhosphorLogo from "@/assets/phosphor-logo.svg?react";
+import PaperClipsTwo from "@/assets/paperclips-2.svg?react";
+import PaperClipsThree from "@/assets/paperclips-3.svg?react";
+import IPad from "@/assets/ipad.svg?react";
+import IPadSpec from "@/assets/ipad-spec.svg?react";
+import Map from "@/assets/map.svg?react";
+import MapSpec from "@/assets/map-spec.svg?react";
+import Synth from "@/assets/synth.svg?react";
+import SynthSpec from "@/assets/synth-spec.svg?react";
 
 import { Watch, WatchSpec } from "./dynamic/Watch";
 
@@ -44,7 +44,9 @@ const Header = (_: HeaderProps) => {
           <div className="message">
             <MegaphoneSimpleIcon size={32} mirrored />
             <small>
-              Some packages may be renaming icons in coming versions, and deprecating older names. Existing names will continue to work, but we recommend upgrading at your convenience. See{" "}
+              Some packages may be renaming icons in coming versions, and
+              deprecating older names. Existing names will continue to work, but
+              we recommend upgrading at your convenience. See{" "}
               <a href="https://github.com/phosphor-icons/react/releases/tag/v2.1.8">
                 release notes
               </a>{" "}
@@ -59,10 +61,10 @@ const Header = (_: HeaderProps) => {
               We are now processing donations via{" "}
               <a href="https://www.buymeacoffee.com/phosphoricons">
                 Buy Me a Coffee
-              </a>{", "}
-              <a href="https://ko-fi.com/phosphoricons">
-                Ko-fi
-              </a>{", and "}
+              </a>
+              {", "}
+              <a href="https://ko-fi.com/phosphoricons">Ko-fi</a>
+              {", and "}
               <a href="https://opencollective.com/phosphoricons">
                 Open Collective
               </a>

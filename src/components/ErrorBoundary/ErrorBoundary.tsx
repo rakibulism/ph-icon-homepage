@@ -30,7 +30,7 @@ export default class ErrorBoundary extends Component<
         error:
           error instanceof Error
             ? error.message
-            : error.toString?.() ?? "UNSERIALIZEABLE",
+            : (error.toString?.() ?? "UNSERIALIZEABLE"),
         info,
       }),
     });

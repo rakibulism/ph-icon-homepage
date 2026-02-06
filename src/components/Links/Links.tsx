@@ -5,7 +5,7 @@ import OutboundLink from "@/components/OutboundLink";
 
 import "./Links.css";
 
-interface LinksProps { }
+interface LinksProps {}
 
 const Links = (_: LinksProps) => {
   return (

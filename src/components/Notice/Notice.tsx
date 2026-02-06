@@ -1,6 +1,10 @@
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
-import { HourglassMediumIcon, QuestionIcon, SmileyXEyesIcon } from "@phosphor-icons/react";
+import { motion } from "motion/react";
+import {
+  HourglassMediumIcon,
+  QuestionIcon,
+  SmileyXEyesIcon,
+} from "@phosphor-icons/react";
 
 interface NoticeProps {
   message?: ReactNode;

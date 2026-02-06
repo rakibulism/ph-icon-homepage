@@ -1,10 +1,14 @@
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import { ArrowULeftUpIcon, CoffeeIcon, HandHeartIcon } from "@phosphor-icons/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
+import {
+  ArrowULeftUpIcon,
+  CoffeeIcon,
+  HandHeartIcon,
+} from "@phosphor-icons/react";
 
 import Links from "@/components/Links/Links";
 
-import { ReactComponent as RulerMarker } from "@/assets/ruler-marker.svg";
-import { ReactComponent as RulerMarkerSpec } from "@/assets/ruler-marker-spec.svg";
+import RulerMarker from "@/assets/ruler-marker.svg?react";
+import RulerMarkerSpec from "@/assets/ruler-marker-spec.svg?react";
 import { useMediaQuery } from "@/hooks";
 import { useApplicationStore } from "@/state";
 import "./Footer.css";

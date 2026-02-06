@@ -1,4 +1,9 @@
-import { FireIcon, ImageIcon, PeaceIcon, RainbowCloudIcon } from "@phosphor-icons/react";
+import {
+  FireIcon,
+  ImageIcon,
+  PeaceIcon,
+  RainbowCloudIcon,
+} from "@phosphor-icons/react";
 
 import { RecipeProps } from "../Recipe";
 

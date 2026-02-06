@@ -44,12 +44,13 @@ const options: WeightOption[] = [
 
 type StyleInputProps = {};
 
-
 const StyleInput = (_: StyleInputProps) => {
-  const { style, setStyle } = useApplicationStore(useShallow((state) => ({
-    style: state.iconWeight,
-    setStyle: state.setIconWeight,
-  })));
+  const { style, setStyle } = useApplicationStore(
+    useShallow((state) => ({
+      style: state.iconWeight,
+      setStyle: state.setIconWeight,
+    }))
+  );
 
   const currentStyle = [options.find((option) => option.value === style)!];
 
@@ -72,8 +73,9 @@ const StyleInput = (_: StyleInputProps) => {
         <span
           role="option"
           aria-selected={item.key === values[0].key}
-          className={`react-dropdown-select-item ${itemIndex === cursor ? "react-dropdown-select-item-active" : ""
-            }`}
+          className={`react-dropdown-select-item ${
+            itemIndex === cursor ? "react-dropdown-select-item-active" : ""
+          }`}
           onClick={() => methods.addItem(item)}
         >
           {item.icon}

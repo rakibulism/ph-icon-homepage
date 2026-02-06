@@ -15,7 +15,8 @@ const errorFallback = <Notice message="Search error" />;
 const waitingFallback = <Notice type="none" message="" />;
 
 const App: React.FC<any> = () => {
-  const isDark = useApplicationStore.use.applicationTheme() === ApplicationTheme.DARK;
+  const isDark =
+    useApplicationStore.use.applicationTheme() === ApplicationTheme.DARK;
 
   useCSSVariables(
     useMemo(

@@ -1,10 +1,4 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  MutableRefObject,
-  ReactNode,
-} from "react";
+import { useState, useEffect, useRef, ReactNode } from "react";
 import { useShallow } from "zustand/react/shallow";
 import { useHotkeys } from "react-hotkeys-hook";
 import {
@@ -16,8 +10,8 @@ import {
 import ReactGA from "react-ga4";
 
 import { useDebounce } from "@/hooks";
-import "./SearchInput.css";
 import { useApplicationStore } from "@/state";
+import "./SearchInput.css";
 
 const apple = /iPhone|iPod|iPad|Macintosh|MacIntel|MacPPC/i;
 const isApple = apple.test(window.navigator.platform);
@@ -96,10 +90,16 @@ const SearchInput = (_: SearchInputProps) => {
           (key === "Enter" || key === "Escape") && currentTarget.blur()
         }
       />
-      {!value && !isMobile && <Keys>{isApple ? <CommandIcon /> : "Ctrl + "}K</Keys>}
+      {!value && !isMobile && (
+        <Keys>{isApple ? <CommandIcon /> : "Ctrl + "}K</Keys>
+      )}
       {value ? (
         value === query ? (
-          <XIcon className="clear-icon" size={18} onClick={handleCancelSearch} />
+          <XIcon
+            className="clear-icon"
+            size={18}
+            onClick={handleCancelSearch}
+          />
         ) : (
           <HourglassHighIcon className="wait-icon" weight="fill" size={18} />
         )

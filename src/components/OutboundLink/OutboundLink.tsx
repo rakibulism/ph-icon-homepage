@@ -7,11 +7,10 @@ import {
 import ReactGA from "react-ga4";
 import { UaEventOptions } from "react-ga4/types/ga4";
 
-interface OutboundLinkProps
-  extends DetailedHTMLProps<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > {
+interface OutboundLinkProps extends DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> {
   eventLabel: string;
 }
 

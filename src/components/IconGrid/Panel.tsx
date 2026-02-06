@@ -6,7 +6,7 @@ import React, {
   HTMLAttributes,
 } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import { Svg2Png } from "svg2png-converter";
 import { saveAs } from "file-saver";
 import {
@@ -170,7 +170,11 @@ const Panel = () => {
                         weight="fill"
                       />
                     ) : (
-                      <CopyIcon size={20} color="var(--foreground)" weight="fill" />
+                      <CopyIcon
+                        size={20}
+                        color="var(--foreground)"
+                        weight="fill"
+                      />
                     )}
                   </button>
                 )}
@@ -227,11 +231,11 @@ const Panel = () => {
 
     navigator.clipboard?.writeText(
       "data:image/svg+xml;base64," +
-      btoa(
-        unescape(
-          encodeURIComponent(cloneWithSize(ref.current, size).outerHTML)
+        btoa(
+          unescape(
+            encodeURIComponent(cloneWithSize(ref.current, size).outerHTML)
+          )
         )
-      )
     );
     setCopied(CopyType.SVG_DATA);
   };
@@ -241,7 +245,8 @@ const Panel = () => {
 
     const { name } = entry;
     const data = await fetch(
-      `https://raw.githubusercontent.com/phosphor-icons/core/main/raw/${weight}/${name}${weight === "regular" ? "" : `-${weight}`
+      `https://raw.githubusercontent.com/phosphor-icons/core/main/raw/${weight}/${name}${
+        weight === "regular" ? "" : `-${weight}`
       }.svg`
     );
     const content = await data.text();
@@ -276,7 +281,8 @@ const Panel = () => {
 
     const { name } = entry;
     saveAs(
-      `https://raw.githubusercontent.com/phosphor-icons/core/main/raw/${weight}/${name}${weight === "regular" ? "" : `-${weight}`
+      `https://raw.githubusercontent.com/phosphor-icons/core/main/raw/${weight}/${name}${
+        weight === "regular" ? "" : `-${weight}`
       }.svg`,
       `${entry?.name}${weight === "regular" ? "" : `-${weight}`}.svg`
     );

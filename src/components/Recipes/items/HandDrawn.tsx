@@ -1,4 +1,9 @@
-import { CassetteTapeIcon, CubeIcon, VirusIcon, ThumbsUpIcon } from "@phosphor-icons/react";
+import {
+  CassetteTapeIcon,
+  CubeIcon,
+  VirusIcon,
+  ThumbsUpIcon,
+} from "@phosphor-icons/react";
 
 import { RecipeProps } from "../Recipe";
 
@@ -31,8 +36,14 @@ const animation: RecipeProps = {
           </defs>
         </CassetteTapeIcon>
         <CubeIcon color="teal" style={{ filter: "url(#displacementFilter)" }} />
-        <ThumbsUpIcon color="teal" style={{ filter: "url(#displacementFilter)" }} />
-        <VirusIcon color="teal" style={{ filter: "url(#displacementFilter)" }} />
+        <ThumbsUpIcon
+          color="teal"
+          style={{ filter: "url(#displacementFilter)" }}
+        />
+        <VirusIcon
+          color="teal"
+          style={{ filter: "url(#displacementFilter)" }}
+        />
       </div>
     );
   },

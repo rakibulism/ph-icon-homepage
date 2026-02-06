@@ -15,13 +15,15 @@ import { useApplicationStore } from "@/state";
 import "./SettingsActions.css";
 
 const SettingsActions = () => {
-  const { weight, setWeight, setSize, setColor, reset } = useApplicationStore(useShallow((state) => ({
-    weight: state.iconWeight,
-    setWeight: state.setIconWeight,
-    setSize: state.setIconSize,
-    setColor: state.setIconColor,
-    reset: state.resetApplicationState,
-  })));
+  const { weight, setWeight, setSize, setColor, reset } = useApplicationStore(
+    useShallow((state) => ({
+      weight: state.iconWeight,
+      setWeight: state.setIconWeight,
+      setSize: state.setIconSize,
+      setColor: state.setIconColor,
+      reset: state.resetApplicationState,
+    }))
+  );
 
   const [copied, setCopied] = useTransientState<boolean>(false, 2000);
   const [booped, setBooped] = useState<boolean>(false);

@@ -53,7 +53,11 @@ const duocolor: RecipeProps = {
       <div className="example">
         <Duocolor Icon={FlyingSaucerIcon} duocolor="darkcyan" />
         <Duocolor Icon={BarricadeIcon} color="darkgray" duocolor="orange" />
-        <Duocolor Icon={IceCreamIcon} color="saddlebrown" duocolor="lightpink" />
+        <Duocolor
+          Icon={IceCreamIcon}
+          color="saddlebrown"
+          duocolor="lightpink"
+        />
         <Duocolor Icon={GasCanIcon} duocolor="indianred" />
       </div>
     );
